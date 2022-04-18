@@ -14,6 +14,7 @@ define('FS_THEME_VERSION', '2.1');
 define('FS_DEV_MODE', false);
 define('FS_THEME_USE_FONT_AWESOME', false); // Enable this only if BB plugin is active.
 define('FS_THEME_USE_CUSTOM_JS', false); // This will enqueue script.js file.
+define( 'FS_THEME_USE_LIGHTBOX_LIB', false ); // This will enqueue jquery.lightbox_me.min.js file
 
 /**
 * Include core functions
@@ -39,6 +40,17 @@ add_action('wp_enqueue_scripts', function () {
         [],
         $version,
     );
+
+    // Enqueue lightbox_me.min.js library file
+    if(FS_THEME_USE_LIGHTBOX_LIB){
+        wp_enqueue_script(
+            'fs-lightbox', 
+            get_stylesheet_directory_uri() . '/assets/js/jquery.lightbox_me.min.js' , 
+            array('jquery'), 
+            $version, 
+            true
+        );
+    }
 
     // Enqueue script.js file.
     if (FS_THEME_USE_CUSTOM_JS) {
@@ -91,18 +103,7 @@ function fs_define_post_types_taxonomies()
     fs_register_taxonomy('book_cat', 'Book Category', 'Book Categories', 'book');
 }
 // Uncomment the lines below to add custom post type and taxonomies.
-// phpcs:ignore Squiz.Commenting.InlineComment.InvalidEndChar
 // add_action('init', 'fs_define_post_types_taxonomies', 0);
-
-/**
- * Gets and returns the generated config from SCSS variables.
- *
- * @return array
- */
-function fs_get_theme_style_config()
-{
-    return json_decode(file_get_contents(get_stylesheet_directory() . '/assets/palette.json'));
-}
 
 /**
  * Create custom button presets for BB Button module.

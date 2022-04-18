@@ -1,9 +1,2 @@
-# fs-astra-child-theme
+# fs-astra-child-theme-standard
 Feature rich child theme for Astra to be used for Beaver Builder based projects.
-
-Inlcudes:
-
-1. PHP Code Sniffer checks
-2. StyleLint
-3. ESLint
-4. SCSS

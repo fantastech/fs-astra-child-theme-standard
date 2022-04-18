@@ -116,7 +116,7 @@ function fs_modify_theme_labels($labels){
 		'astra'        => array(
 			'name'        => 'FS Core',
 			'description' => 'This is the main parent theme of your website. Do not delete.',
-			'screenshot'  => get_stylesheet_directory_uri() . '/screenshot-parent.png',
+			'screenshot'  => get_stylesheet_directory_uri() . '/assets/images/screenshot-parent.png',
 		),
 		'astra-pro'    => array(
 			'name'        => 'FS Core',
